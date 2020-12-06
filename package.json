@@ -1,0 +1,25 @@
+{
+  "name": "learning-algorithms",
+  "version": "1.0.0",
+  "description": "Learning algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register ./test "
+  },
+  "keywords": ["algorithms js","learning algorithms"],
+  "author": "yuexing0921@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.4",
+    "chai": "^4.2.0",
+    "core-js": "^2.6.12",
+    "mocha": "^8.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/register": "^7.12.1"
+  }
+}
