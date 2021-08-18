@@ -1,6 +1,7 @@
 // https://leetcode-cn.com/problems/valid-parentheses/
 
 /**
+ * 简单
  * 使用栈来运算-用数组模拟栈
  * @param {string} s
  * @return {boolean}
