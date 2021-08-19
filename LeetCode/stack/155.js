@@ -1,6 +1,7 @@
 // https://leetcode-cn.com/problems/min-stack/
 
 /**
+ * 简单
  * initialize your data structure here.
  */
 var MinStack = function () {

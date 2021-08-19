@@ -1,6 +1,7 @@
 // https://leetcode-cn.com/problems/build-an-array-with-stack-operations/
 
 /**
+ * 简单
  * 考察点：主要是考察栈的操作，什么情况下应该pop，什么情况下应该peek
  * 示例 1：
  * 输入：target = [1,3], n = 3
