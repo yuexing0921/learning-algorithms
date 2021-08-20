@@ -51,3 +51,34 @@ var isValid = function (s) {
 
   return stack.length === 0;
 };
+
+// 早期解法
+// var isValid = function(s) {
+//   var stack = []
+//   if(s.length % 2 !== 0){
+//       return false
+//   }
+//   let i = 0;
+//   const map = {
+//       "(":")",
+//       "[":"]",
+//       "{":"}",
+//   }
+//   let len = s.length
+//   while(i < len ){
+//       const chart = s[i]
+//       switch(chart){
+//           case '(':
+//           case '{':
+//           case '[':
+//               stack.push(chart);
+//               break;
+//           default:
+//               if(chart !== map[stack.pop()]){
+//                   return false
+//               }
+//       }
+//       i++
+//   }
+//   return stack.length === 0
+// };
