@@ -1,7 +1,10 @@
 // https://leetcode-cn.com/problems/maximum-frequency-stack/
 
+/**
+ * 又是一个栈的题，这次题目的
+ */
 var FreqStack = function () {
-  this.countStack = {};
+  this.map = {};
   this.freqStack = {};
   this.max = 0;
 };
@@ -11,8 +14,8 @@ var FreqStack = function () {
  * @return {void}
  */
 FreqStack.prototype.push = function (val) {
-  const freq = (this.countStack[val] || 0) + 1;
-  this.countStack[val] = freq;
+  const freq = (this.map[val] || 0) + 1;
+  this.map[val] = freq;
 
   const stack = this.freqStack[freq] || [];
   stack.push(val);
@@ -28,55 +31,15 @@ FreqStack.prototype.pop = function () {
 
   const val = stack.pop();
 
-  this.countStack[val] -= 1;
+  this.map[val] -= 1;
 
-  // 更新maxFreq
   if (!stack.length) {
+    delete this.freqStack[this.max];
     this.max--;
   }
+  //   console.log(val);
   return val;
 };
-
-// var FreqStack = function () {
-//   this.maxFreq = 0;
-//   // FV MAP
-//   this.FreqToVal = new Map();
-//   this.ValToFreq = new Map();
-// };
-
-// /**
-//  * @param {number} val
-//  * @return {void}
-//  */
-// FreqStack.prototype.push = function (val) {
-//   // 修改VF表
-//   let freq = this.ValToFreq.has(val) ? this.ValToFreq.get(val) + 1 : 1;
-//   this.ValToFreq.set(val, freq);
-//   // 修改FV表：在对应freq对应的列表上加上val
-//   if (!this.FreqToVal.has(freq)) {
-//     this.FreqToVal.set(freq, []);
-//   }
-//   this.FreqToVal.get(freq).push(val);
-//   this.maxFreq = Math.max(this.maxFreq, freq);
-// };
-
-// /**
-//  * @return {number}
-//  */
-// FreqStack.prototype.pop = function () {
-//   // 修改FV表： pop出一个maxFreq 对应的元素v
-//   let vals = this.FreqToVal.get(this.maxFreq);
-//   let v = vals.pop();
-//   // 修改VF表，使v对应的freq-1
-//   freq = this.ValToFreq.get(v) - 1;
-//   this.ValToFreq.set(v, freq);
-//   // 更新maxFreq
-//   if (!vals.length) {
-//     this.maxFreq--;
-//   }
-//   console.log(v);
-//   return v;
-// };
 
 // 输入：
 // ["FreqStack","push","push","push","push","push","push","pop","pop","pop","pop"],
