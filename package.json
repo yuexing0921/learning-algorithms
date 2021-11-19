@@ -6,7 +6,10 @@
   "scripts": {
     "test": "mocha --require @babel/register ./test/**/**.spec.js "
   },
-  "keywords": ["algorithms js","learning algorithms"],
+  "keywords": [
+    "algorithms js",
+    "learning algorithms"
+  ],
   "author": "yuexing0921@gmail.com",
   "license": "MIT",
   "dependencies": {
@@ -14,6 +17,7 @@
     "@types/mocha": "^8.0.4",
     "chai": "^4.2.0",
     "core-js": "^2.6.12",
+    "jest": "^27.3.1",
     "mocha": "^8.2.1"
   },
   "devDependencies": {
