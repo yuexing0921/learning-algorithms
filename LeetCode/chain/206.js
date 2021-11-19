@@ -6,6 +6,7 @@
  * }
  */
 /**
+ * 反转链表
  * 普通迭代法
  * @param {ListNode} head
  * @return {ListNode}
@@ -28,9 +29,9 @@
  * @return {ListNode}
  */
 var reverseList = function (head) {
-    if(head == null || head.next == null) return head;
-    const p = reverseList(head.next);
-    head.next.next = head
-    head.next = null
-    return p
-}
+  if (head == null || head.next == null) return head;
+  const p = reverseList(head.next);
+  head.next.next = head;
+  head.next = null;
+  return p;
+};
