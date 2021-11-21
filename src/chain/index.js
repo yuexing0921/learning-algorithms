@@ -19,6 +19,9 @@ export class NodeList {
     });
     return head;
   }
+  add(val){
+    const 
+  }
 }
 
 // 交换两个节点的值
