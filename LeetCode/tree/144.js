@@ -8,7 +8,7 @@
  * }
  */
 // /**
-//  * 递归方式
+//  * 1. 前序遍历-递归方式
 //  * @param {TreeNode} root
 //  * @return {number[]}
 //  */
@@ -26,7 +26,7 @@
 //   return result;
 // };
 // /**
-//  * 迭代方式1-用栈来模拟（先进后出）
+//  * 2. 前序遍历-迭代方式1-用栈来模拟（先进后出）
 //  * @param {TreeNode} root
 //  * @return {number[]}
 //  */
@@ -46,7 +46,7 @@
 //   return result;
 // };
 /**
- * 迭代方式2-用栈来模拟（先进后出）中左右
+ * 2. 前序遍历-迭代方式2-用栈来模拟（先进后出）中左右
  * @param {TreeNode} root
  * @return {number[]}
  */
@@ -55,9 +55,9 @@ var preorderTraversal = function (root) {
   const stack = [];
   while (stack.length > 0 || root) {
     while (root) {
-      // 先把左边节点遍历完成
       result.push(root.val);
       stack.push(root);
+      // 先把左边节点遍历完成
       root = root.left;
     }
     // 取出左边节点
