@@ -8,11 +8,11 @@
  * };
  */
 
-/**
- * 1. DFS 递归法： N 叉树的最大深度
- * @param {Node|null} root
- * @return {number}
- */
+// /**
+//  * 1. DFS 递归法： N 叉树的最大深度
+//  * @param {Node|null} root
+//  * @return {number}
+//  */
 // var maxDepth = function (root) {
 //   if (!root) {
 //     return 0;
@@ -25,7 +25,7 @@
 // };
 
 /**
- * 2. BFS ： N 叉树的最大深度
+ * 2. BFS-队列： N 叉树的最大深度
  * @param {Node|null} root
  * @return {number}
  */
