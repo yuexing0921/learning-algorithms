@@ -47,6 +47,7 @@
 //   if (!root.left) return 1 + minDepth(root.right);
 //   // 只有左节点时 递归左节点
 //   if (!root.right) return 1 + minDepth(root.left);
+//   // 左右节点都有的时候，双方进行递归获取
 //   return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
 // };
 
@@ -77,7 +78,7 @@
 
 /**
  * 4. 迭代法-栈 111. 二叉树的最小深度
- * 
+ *
  * @param {TreeNode} root
  * @return {number}
  */
