@@ -22,7 +22,23 @@
 //   }
 //   return prev;
 // };
-
+/**
+ * 递归方式1
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverse = function (prev, head) {
+  if (head == null) {
+    return prev;
+  }
+  const next = head.next; // 保存下一个节点
+  head.next = prev; // 指向上一个指针
+  prev = head; // 上一个指针移位到当前指针
+  return reverse(prev, next); // 当前指针移动到下一个指针
+};
+var reverseList = function (head) {
+  return reverse(null, head);
+};
 /**
  * 递归方式
  * @param {ListNode} head
