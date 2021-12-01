@@ -55,39 +55,8 @@
 //   };
 //   return check(root, root);
 // };
-// /**
-//  * 3.队列-迭代法01 - 101. 对称二叉树
-//  * @param {TreeNode} root
-//  * @return {boolean}
-//  */
-// var isSymmetric = function (root) {
-//   if (!root) {
-//     return true;
-//   }
-//   const queue = [];
-
-//   queue.push(root.left);
-//   queue.push(root.right);
-
-//   while (queue.length) {
-//     const left = queue.shift();
-//     const right = queue.shift();
-//     if (!left && !right) {
-//       continue;
-//     }
-//     if (!left || !right || left.val !== right.val) {
-//       return false;
-//     }
-//     queue.push(left.left);
-//     queue.push(right.right);
-//     queue.push(left.right);
-//     queue.push(right.left);
-//   }
-//   return true;
-// };
-
 /**
- * 4.栈-迭代法02 - 101. 对称二叉树
+ * 3.队列-迭代法01 - 101. 对称二叉树
  * @param {TreeNode} root
  * @return {boolean}
  */
@@ -95,14 +64,14 @@ var isSymmetric = function (root) {
   if (!root) {
     return true;
   }
-  const stack = [];
+  const queue = [];
 
-  stack.push(root.left);
-  stack.push(root.right);
+  queue.push(root.left);
+  queue.push(root.right);
 
-  while (stack.length) {
-    const left = queue.pop();
-    const right = queue.pop();
+  while (queue.length) {
+    const left = queue.shift();
+    const right = queue.shift();
     if (!left && !right) {
       continue;
     }
