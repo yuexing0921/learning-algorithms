@@ -25,28 +25,30 @@
 //   dfs(root);
 //   return result;
 // };
-// /**
-//  * 2. 前序遍历-迭代方式1-用栈来模拟（先进后出）
-//  * @param {TreeNode} root
-//  * @return {number[]}
-//  */
-// var preorderTraversal = function (root) {
-//   if (!root) {
-//     return [];
-//   }
-//   const result = [];
-//   const stack = [root];
-//   while (stack.length > 0) {
-//     const node = stack.pop();
-//     result.push(node.val);
-//     // 栈的特性，先进后出，因为是前序排列所以需要右边先进，左边后进，但是会先出
-//     node.right && stack.push(node.right);
-//     node.left && stack.push(node.left);
-//   }
-//   return result;
-// };
 /**
- * 2. 前序遍历-迭代方式2-用栈来模拟（先进后出）中左右
+ * 2. 前序遍历-迭代方式1-用栈来模拟（先进后出）
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var preorderTraversal = function (root) {
+  if (!root) {
+    return [];
+  }
+  const res = [];
+  const stack = [root];
+  while (stack.length > 0) {
+    root = stack.pop();
+    res.push(root.val);
+    // todo： 栈的特性，先进后出，因为是前序排列所以需要右边先进，左边后进，但是会先出
+    root.right && stack.push(root.right);
+    root.left && stack.push(root.left);
+  }
+  return res;
+};
+/**
+ * 这个版本废弃
+ * 2. 前序遍历-迭代方式2-用栈来模拟（先进后出）中左右,相比于之前的版本要多出一倍的性能
+ * 测试case[5,4,6,1,2,7,8]
  * @param {TreeNode} root
  * @return {number[]}
  */

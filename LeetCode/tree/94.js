@@ -30,6 +30,7 @@
 
 /**
  * 2. 中序遍历-迭代法，左中右 关键是入栈和出栈的顺序
+ * 测试case[5,4,6,1,2,7,8]
  * @param {TreeNode} root
  * @return {number[]}
  */
@@ -44,6 +45,26 @@ var inorderTraversal = function (root) {
     root = stack.pop();
     result.push(root.val);
     root = root.right;
+  }
+  return result;
+};
+/**
+ * 2. 中序遍历-迭代法，左中右 关键是入栈和出栈的顺序
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var inorderTraversal = function (root) {
+  const result = [];
+  const stack = [];
+  while (root || stack.length > 0) {
+    if (root) {
+      stack.push(root);
+      root = root.left;
+    } else {
+      root = stack.pop();
+      result.push(root.val);
+      root = root.right;
+    }
   }
   return result;
 };
