@@ -33,9 +33,9 @@
 //   return paths;
 // };
 /**
- * 
- * @param {*} root 
- * @returns 
+ * DFS
+ * @param {*} root
+ * @returns
  */
 var binaryTreePaths = function (root) {
   const paths = [];
@@ -55,4 +55,35 @@ var binaryTreePaths = function (root) {
   };
   dfs(root, "");
   return paths;
+};
+
+/**
+ * BFS
+ * @param {*} root
+ * @returns
+ */
+var binaryTreePaths = function (root) {
+  if (!root) {
+    return null;
+  }
+  const queue = [root];
+  const paths = ["" + root.val];
+  const res = [];
+  while (queue.length > 0) {
+    const node = queue.shift();
+    const path = paths.shift();
+    if (!node.left && !node.right) {
+      // 如果左右节点都为空了
+      res.push(path);
+    }
+    if (node.left) {
+      queue.push(node.left);
+      paths.push(path + "->" + node.left.val);
+    }
+    if (node.right) {
+      queue.push(node.right);
+      paths.push(path + "->" + node.right.val);
+    }
+  }
+  return res;
 };
