@@ -17,3 +17,20 @@ export function xor(arr, a, b) {
   arr[a] = arr[a] ^ arr[b];
   return arr;
 }
+
+/**
+ * 提取数字最右侧的1
+ * @param {*} num
+ */
+export function rightmost(num) {
+  console.log(num + "二进制: ", num.toString(2));
+  const result = num & (~num + 1);
+  console.log(result, result.toString(2));
+  return result;
+}
+rightmost(99);
+rightmost(1);
+rightmost(2);
+rightmost(3);
+rightmost(4);
+rightmost(10);
