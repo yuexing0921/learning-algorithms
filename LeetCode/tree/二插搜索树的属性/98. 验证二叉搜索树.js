@@ -21,3 +21,73 @@ var isValidBST = function (root) {
   };
   return dst(root, -Infinity, Infinity);
 };
+
+/**
+ * 98. 验证二叉搜索树 - dfs-中序遍历，
+ * 二叉搜索树是一颗升序的树，利用左中右遍历进行遍历
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function (root) {
+  let prev = -Infinity;
+  const dst = function (root) {
+    if (!root) return true;
+    if (!dst(root.left)) return false;
+    if (root.val <= prev) return false;
+    prev = root.val;
+    return dst(root.right);
+  };
+  return dst(root);
+};
+
+/**
+ * 98. 验证二叉搜索树 - bfs-中序遍历-栈，
+ * 二叉搜索树是一颗升序的树，利用左中右遍历进行遍历
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function (root) {
+  if (!root) return true;
+  let prev = -Infinity;
+  const stack = [];
+  while (root || stack.length) {
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    root = stack.pop();
+    if (root.val <= prev) {
+      return false;
+    }
+    prev = root.val;
+    root = root.right;
+  }
+
+  return true;
+};
+
+/**
+ * 98. 验证二叉搜索树 - bfs-中序遍历-队列，
+ * 二叉搜索树是一颗升序的树，利用左中右遍历进行遍历
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+var isValidBST = function (root) {
+  if (!root) return true;
+  let prev = -Infinity;
+  const queue = [];
+  while (root || stack.length) {
+    while (root) {
+      queue.unshift(root);
+      root = root.left;
+    }
+    root = queue.shift();
+    if (root.val <= prev) {
+      return false;
+    }
+    prev = root.val;
+    root = root.right;
+  }
+
+  return true;
+};
