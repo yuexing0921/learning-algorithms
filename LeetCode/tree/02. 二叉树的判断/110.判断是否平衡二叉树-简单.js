@@ -30,3 +30,32 @@ var isBalanced = function (root) {
   }
   return isBalanced(root.left) && isBalanced(root.right);
 };
+
+/**
+ * 110.判断是否平衡二叉树：深度递归
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+const process = function (node) {
+  if (!node) {
+    return {
+      isBalanced: true,
+      height: 0,
+    };
+  }
+  const leftData = process(node.left);
+  const rightData = process(node.right);
+  // 获取左右两边的高度，取最高值
+  const height = Math.max(leftData.height, rightData.height) + 1;
+  const isBalanced =
+    leftData.isBalanced &&
+    rightData.isBalanced &&
+    Math.abs(leftData.height - rightData.height) < 2;
+  return {
+    isBalanced,
+    height,
+  };
+};
+var isBalanced = function (root) {
+  return process(root).isBalanced;
+};
