@@ -27,16 +27,16 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-// var hasCycle = function (head) {
-//   while (head) {
-//     if (head.__tag) {
-//       return true;
-//     }
-//     head.__tag = true;
-//     head = head.next;
-//   }
-//   return false;
-// };
+var hasCycle = function (head) {
+  while (head) {
+    if (head.__tag) {
+      return true;
+    }
+    head.__tag = true;
+    head = head.next;
+  }
+  return false;
+};
 
 /**
  * 3. 快慢指针
@@ -44,14 +44,15 @@
  * @return {boolean}
  */
 var hasCycle = function (head) {
+  if (!head || !head.next) return false;
   let slow = head,
-    fast = head;
+    fast = head.next;
   while (fast && fast.next) {
-    slow = slow.next;
-    fast = fast.next.next;
     if (slow === fast) {
       return true;
     }
+    slow = slow.next;
+    fast = fast.next.next;
   }
   return false;
 };
