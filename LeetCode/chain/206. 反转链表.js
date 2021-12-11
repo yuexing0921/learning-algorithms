@@ -7,8 +7,15 @@
  * }
  */
 /**
- * 反转链表 三部曲
- * 普通迭代法
+ * 反转链表 普通迭代法 三部曲
+ * 1. 设立prev = null，保存下一个指针next
+ *    const next = curr.next;
+ * 2. 把next指向 prev
+ *    curr.next = prev;
+ * 3. prev往前挪一位
+ *    prev = curr;
+ * 4. 当前指针指向下一个节点next
+ *    curr = next;
  * @param {ListNode} head
  * @return {ListNode}
  */
@@ -31,16 +38,17 @@ var reverseList = function (head) {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverse = function (prev, head) {
-  if (head == null) {
-    return prev;
-  }
-  const next = head.next; // 保存下一个节点
-  head.next = prev; // 指向上一个指针
-  prev = head; // 上一个指针移位到当前指针
-  return reverse(prev, next); // 当前指针移动到下一个指针
-};
+
 var reverseList = function (head) {
+  const reverse = function (prev, node) {
+    if (node == null) {
+      return prev;
+    }
+    const next = node.next; // 保存下一个节点
+    node.next = prev; // 指向上一个指针
+    prev = node; // 上一个指针移位到当前指针
+    return reverse(prev, next); // 当前指针移动到下一个指针
+  };
   return reverse(null, head);
 };
 /**
