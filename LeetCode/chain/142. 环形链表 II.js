@@ -26,28 +26,29 @@ var detectCycle = function (head) {
 
 /**
  * 2. 快慢指针
+ * https://leetcode-cn.com/problems/linked-list-cycle-ii/solution/142-huan-xing-lian-biao-ii-jian-hua-gong-shi-jia-2/
  * @param {ListNode} head
  * @return {ListNode}
  */
 var detectCycle = function (head) {
   let fast = head,
-    slow = head;
-  while (fast) {
-    slow = slow.next;
-    if (!fast.next) {
-      return null;
-    }
+    slow = head,
+    isCycle = false;
+  while (fast && fast.next) {
     fast = fast.next.next;
-    // 如果出现了环，则需要重新
-    if (slow === fast) {
-      let fast = head;
-      while (fast !== slow) {
-        fast = fast.next;
-        slow = slow.next;
-      }
-
-      return fast;
+    slow = slow.next;
+    if (fast === slow) {
+      isCycle = true;
+      break;
     }
+  }
+  if (isCycle) {
+    fast = head;
+    while (fast !== slow) {
+      fast = fast.next;
+      slow = slow.next;
+    }
+    return fast;
   }
   return null;
 };
