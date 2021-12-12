@@ -15,8 +15,10 @@
 var deleteDuplicates = function (head) {
   let curr = head;
   while (curr && curr.next) {
-    if (curr.val === curr.next.val) {
-      curr.next = curr.next.next;
+    const next = curr.next;
+    // 如果和下一个相等，则next指针指向下下个
+    if (curr.val == next.val) {
+      curr.next = next.next;
     } else {
       curr = curr.next;
     }
