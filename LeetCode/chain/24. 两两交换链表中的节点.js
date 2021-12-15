@@ -19,12 +19,14 @@ var swapPairs = function (head) {
   while (curr.next && curr.next.next) {
     const first = curr.next,
       second = curr.next.next;
-    // 1. curr.next 指向second
-    curr.next = second;
-    // 2. first.next指向second.next
+
+    // 1. first.next指向second.next
     first.next = second.next;
-    // 3. second.next指向first
+    // 2. second.next指向first
     second.next = first;
+    // 3. curr.next 指向second
+    curr.next = second;
+
     // 循环指向下一个节点a
     curr = first;
   }
