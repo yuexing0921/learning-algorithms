@@ -2,10 +2,10 @@
 
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
+function ListNode(val, next) {
+   this.val = (val===undefined ? 0 : val)
+   this.next = (next===undefined ? null : next)
+}
  */
 /**
  * 19. 删除链表的倒数第 N 个结点
